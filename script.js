@@ -6,21 +6,17 @@ function calculateBMI() {
     const bmiValueText = document.getElementById('bmi-value');
     const bmiDisplayText = document.getElementById('bmi-text');
 
-    // ตรวจสอบข้อมูลเบื้องต้น
     if (!weight || !heightCm || heightCm <= 0) {
         alert("กรุณากรอกข้อมูลให้ถูกต้องครับ");
         return;
     }
 
-    // คำนวณตามสูตร: BMI = น้ำหนัก / (ส่วนสูงเมตร ^ 2)
     const heightM = heightCm / 100;
     const bmi = weight / (heightM * heightM);
     const result = bmi.toFixed(2);
 
-    // แสดงผล Container
     resultContainer.classList.remove('hidden');
 
-    // แปลผลตามเกณฑ์
     let label = "";
     let color = "";
 
@@ -38,7 +34,6 @@ function calculateBMI() {
         color = "#dc3545";
     }
 
-    // ส่งค่ากลับไปที่หน้าเว็บ
     bmiValueText.innerText = result;
     bmiValueText.style.color = color;
     bmiDisplayText.innerText = `อยู่ในเกณฑ์: ${label}`;
